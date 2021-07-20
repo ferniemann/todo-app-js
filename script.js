@@ -33,8 +33,6 @@ btnAdd.addEventListener("click", function(e){
 
     tasks.push(taskItem)
 
-    console.log(tasks);
-
     const newLi = document.createElement("li")
     newLi.taskObj = taskItem
     console.log(newLi.taskObj);
@@ -59,12 +57,7 @@ btnAdd.addEventListener("click", function(e){
     btnDelete = newLi.appendChild(newP)
     
     btnDelete.addEventListener("click", function(){
-        const index = tasks.findIndex(function(o) {
-            return o.id === id
-        })
-        tasks = tasks.splice(index, 1)
-
-        console.log(tasks);
+        newLi.remove()
     })
 
     text.value = ""
