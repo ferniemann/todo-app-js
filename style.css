@@ -27,7 +27,6 @@ html {
 header {
     text-align: center;
     margin-bottom: 2rem;
-    display: none;
 }
 
 .btn {
@@ -110,24 +109,20 @@ header {
 .tasks {
     margin: 2rem 20%;
     list-style: none;
-    padding: 1rem;
-    background: var(--secondary);
 }
 
 li {
-    padding: 1rem 0;
-    border-bottom: 1px solid white;
+    height: 2.5rem;
+    padding: 0 2rem;
+    background-color: var(--secondary);
     font-size: 1.5rem;
     color: white;
-}
-
-li:first-of-type {
-    padding-top: 0;
-}
-
-li:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }
 
 input[type="checkbox"] {
@@ -139,6 +134,28 @@ input[type="checkbox"]:checked + label {
     opacity: 0.5;
 }
 
+input[type="checkbox"]:checked ~ .delete {
+    display: flex;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+}
+
+.delete {
+    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
+    background: var(--main);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
     html {
         font-size: 16px;
@@ -146,5 +163,12 @@ input[type="checkbox"]:checked + label {
 
     .tasks {
         margin: 2rem 5%;
+    }
+
+    header {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 }

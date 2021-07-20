@@ -4,7 +4,7 @@ const btnAll = document.querySelector("#btn-filter-all")
 const btnDone = document.querySelector("#btn-filter-done")
 const btnOpen = document.querySelector("#btn-filter-open")
 const tasksList = document.querySelector("#tasks-list")
-const tasks = []
+let tasks = []
 
 btnAdd.disabled = true
 
@@ -51,6 +51,21 @@ btnAdd.addEventListener("click", function(e){
     const textNode = document.createTextNode(textValue)
     label.append(textNode)
     newLi.appendChild(label)
+
+    newP = document.createElement("p")
+    newP.setAttribute("id", id+"-delete")
+    newP.setAttribute("class", "delete")
+    newP.innerHTML = "X"
+    btnDelete = newLi.appendChild(newP)
+    
+    btnDelete.addEventListener("click", function(){
+        const index = tasks.findIndex(function(o) {
+            return o.id === id
+        })
+        tasks = tasks.splice(index, 1)
+
+        console.log(tasks);
+    })
 
     text.value = ""
     btnAdd.disabled = true
