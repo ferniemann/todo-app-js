@@ -110,6 +110,11 @@ header {
     border-radius: 0 4px 4px 0;
 }
 
+.clicked {
+    background: var(--disabled);
+    color: var(--main)
+}
+
 .tasks {
     margin: 2rem 20%;
     list-style: none;

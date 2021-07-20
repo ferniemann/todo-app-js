@@ -45,38 +45,14 @@ btnAdd.addEventListener("click", function(e){
 
     tasks.push(taskItem)
 
-    // const newLi = document.createElement("li")
-    // newLi.taskObj = taskItem
-    // console.log(newLi.taskObj);
-    // newLi.setAttribute("id", id)
-    // tasksList.appendChild(newLi)
-
-    // const checkbox = document.createElement("input")
-    // checkbox.setAttribute("type", "checkbox")
-    // checkbox.setAttribute("id", id+"-item")
-    // newLi.appendChild(checkbox)
-
-    // const label = document.createElement("label")
-    // label.setAttribute("for", id+"-item")
-    // const textNode = document.createTextNode(textValue)
-    // label.append(textNode)
-    // newLi.appendChild(label)
-
-    // newP = document.createElement("p")
-    // newP.setAttribute("id", id+"-delete")
-    // newP.setAttribute("class", "delete")
-    // newP.innerHTML = "X"
-    // btnDelete = newLi.appendChild(newP)
-    
-    // btnDelete.addEventListener("click", function(){
-    //     newLi.remove()
-    // })
-
     createTaskList()
     isChecked()
 
     text.value = ""
     btnAdd.disabled = true
+    btnAll.classList.add("clicked")
+    btnOpen.classList.remove("clicked")
+    btnDone.classList.remove("clicked")
 })
 
 function createTaskList() {
@@ -114,6 +90,10 @@ tasksList.addEventListener("change", function(e) {
 })
 
 function filterDone() {
+    btnAll.classList.remove("clicked")
+    btnOpen.classList.remove("clicked")
+    btnDone.classList.add("clicked")
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i]
         title = task.title
@@ -128,6 +108,10 @@ function filterDone() {
 }
 
 function filterAll() {
+    btnAll.classList.add("clicked")
+    btnOpen.classList.remove("clicked")
+    btnDone.classList.remove("clicked")
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i]
         title = task.title
@@ -138,6 +122,10 @@ function filterAll() {
 }
 
 function filterOpen() {
+    btnAll.classList.remove("clicked")
+    btnOpen.classList.add("clicked")
+    btnDone.classList.remove("clicked")
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i]
         title = task.title
