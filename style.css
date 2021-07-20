@@ -112,7 +112,7 @@ header {
 }
 
 li {
-    height: 2.5rem;
+    min-height: 2.5rem;
     padding: 0 2rem;
     background-color: var(--secondary);
     font-size: 1.5rem;
@@ -146,14 +146,17 @@ label {
 .delete {
     font-size: 0.8rem;
     width: 30px;
-    height: 30px;
+    min-height: 2.5rem;
+    height: 100%;
     background: var(--main);
     display: none;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    border-radius: 50%;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
+    margin-right: -2rem;
+    margin-left: 2rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -170,5 +173,21 @@ label {
         bottom: 0;
         left: 0;
         right: 0;
+        margin: 0;
+    }
+
+    .add {
+        width: 100vw;
+        margin: 0;
+    }
+
+    .btn-add {
+        width: 20%;
+        border-radius: 0;
+    }
+
+    .text {
+        width: 80%;
+        border-radius: 0;
     }
 }
