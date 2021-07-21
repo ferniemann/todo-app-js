@@ -49,6 +49,9 @@ btnAdd.addEventListener("click", function(e){
     isChecked()
 
     text.value = ""
+
+
+
     btnAdd.disabled = true
     btnAll.classList.add("clicked")
     btnOpen.classList.remove("clicked")
@@ -59,6 +62,7 @@ function createTaskList() {
     for (let i = 0; i < tasks.length; i++) {
         const title = tasks[i].title
         const id = title.trim().replace(/ /g, "-").toLowerCase()
+        const index = tasks[i]
         const newLi = document.createElement("li")
         newLi.setAttribute("id", id)
         tasksList.appendChild(newLi)
@@ -73,6 +77,25 @@ function createTaskList() {
         const textContent = document.createTextNode(title)
         label.append(textContent)
         newLi.appendChild(label)
+
+        const btnDelete = document.createElement("button")
+        btnDelete.setAttribute("id", id+"-delete")
+        btnDelete.setAttribute("class", "delete")
+        btnDelete.innerText = "X"
+        newLi.appendChild(btnDelete)
+
+        btnDelete.addEventListener("click", function(e) {
+            element = e.target.parentNode
+        
+            for (i = 0; i < tasks.length; i++) {
+                if (tasks[i].id === id) {
+                    tasks.splice(i, 1)
+                    console.log(tasks)
+                }
+            }
+
+            tasksList.removeChild(element)
+        })
     }
 }
 

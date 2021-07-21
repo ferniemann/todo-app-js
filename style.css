@@ -153,8 +153,10 @@ label {
 }
 
 .delete {
+    border: 0;
+    color: white;
     font-size: 0.8rem;
-    width: 30px;
+    width: 2.5rem;
     min-height: 2.5rem;
     height: 100%;
     background: var(--main);
@@ -190,7 +192,7 @@ label {
     }
 
     .btn-add {
-        width: 10%;
+        width: 50px;
     }
 
     .text {
